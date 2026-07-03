@@ -13,3 +13,12 @@
     from  sentence_transformers import SentenceTransformer
 
 ```
+
+# FAISS (Industry Standard)
+
+## Install Packages 
+
+```
+    pip install faiss-cpu
+
+```
