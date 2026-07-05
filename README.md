@@ -22,3 +22,17 @@
     pip install faiss-cpu
 
 ```
+
+## Install Required Packages
+
+```
+    pip install chromadb
+
+```
+
+## Install Required Packages to implement chromadb
+
+```
+   pip install chromadb sentence-transformers openai
+
+```
