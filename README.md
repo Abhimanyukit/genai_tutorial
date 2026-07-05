@@ -148,6 +148,17 @@ that's good.
     /bye
 ```
 
+# Another Option: Hugging Face Transformers (Local)
 
+```
+    pip install transformers torch
+```
+
+##  Check the Ollama server is running 
+
+```
+http://localhost:11434
+
+```
 
 
