@@ -2,6 +2,9 @@ import os
 from sentence_transformers import SentenceTransformer
 import chromadb
 from openai import OpenAI
+import ollama
+
+
 
 model = SentenceTransformer("all-MiniLM-L6-v2")
 
@@ -42,6 +45,7 @@ metadatas=[{filename:"hr_policy"},
 print("collection:",collection,"\n\n\n")
 
 query = "How many casual leaves are allowed?"
+query = "what is cafetaria opening and closing time?"
 
 query_embedding = model.encode(query).tolist()
 
@@ -63,6 +67,7 @@ context =result["documents"][0][0]
 print("context:",context,"\n\n\n")
 
 question = "How many casual leaves are allowed?"
+question = "what is cafetaria opening and closing time?"
 
 prompt = f"""
 
@@ -77,6 +82,36 @@ for i, doc in enumerate(result["documents"][0]):
     print(f"Result {i+1}:")
     print(doc)
     print("-" * 50)
+
+
+response = ollama.chat(
+
+    model = "llama3.2",
+    messages=[
+        {
+            "role":"user",
+            "content":"What is Python?"
+        }
+    ]
+)
+
+print("response:",response["message"]["content"],"\n\n\n")
+
+
+response = ollama.chat(
+
+    model = "llama3.2",
+    messages=[
+        {
+            "role":"user",
+            "content":prompt
+        }
+    ]
+)
+
+print("response:",response["message"]["content"],"\n\n\n")
+
+
 
 
 
